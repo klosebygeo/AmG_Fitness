@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} List of trainers {% endblock %}
+
+{% block content %}
+
+    <p style="font-size: 30px; text-align: center; font-family: 'Times New Roman'"><b>List of trainers</b></p>
+    <br/>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card card-sm" style="background-color:{{ random_color }}">
+                    <h3 class="text-center">Filters</h3>
+                </div>
+                <form method="get">
+                    <div class="card-body">
+                        {{ form_filters.as_p }}
+                    </div>
+                    <div class="card-footer text-center">
+                        <button type="submit" class="btn btn-outline-success">Filters</button>
+                        <a href="{% url 'list-of-trainers' %}" class="btn btn-outline-secondary-danger">Reset</a>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-9" >
+                <div class="d-flex flex-wrap justify-content-end">
+                    {% if all_trainers %}
+                        {% for trainer in all_trainers %}
+                            <div class="col-md-2 mb-2">
+                                <a href="{% url 'details-trainer' trainer.id %}">
+                                    {% if trainer.profile %}
+                                        <img src="{{ trainer.profile.url }}" class="card-img-top img-profile-small" alt="...">
+                                    {% else %}
+                                        <img src="{% static 'img/img.png' %}" class="card-img-top img-profile-small" alt="...">
+                                    {% endif %}
+                                </a>
+                                    <div class="card-body">
+                                        <h5 class="card-title"> {{ trainer.first_name }} {{ trainer.last_name }}</h5>
+                                        <h6 class="card-subtitle mb-2 text-body-secondary">{{ trainer.email }}</h6>
+                                        <p class="card-text">{{ trainer.departament }}</p>
+                        {% if perms.trainer_update_trainers or perms.trainer_delete_trainers or perms.trainer_details_trainer  %}
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary dropdown-toggle" type="button"
+                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                More Actions
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                {% if perms.trainer_update_trainers %}
+                                                <li><a class="dropdown-item"
+                                                       href={% url 'update-trainer' trainer.id %}>Update</a></li>
+                                                {% endif %}
+                                            {% if perms.trainer_delete_trainers %}
+                                                <li><a class="dropdown-item"
+                                                       href={% url 'delete-trainer' trainer.id %}>Delete</a></li>
+                                            {% endif %}
+                                            {% if perms.trainer_details_trainer %}
+                                                <li><a class="dropdown-item" href="">View</a></li>
+                                            {% endif %}
+                                                <li><a class="dropdown-item" href="#">Inactive</a></li>
+                                            </ul>
+                                        </div>
+                                    {% else %}
+                                    <p><b> No actions</b></p>
+                                    {% endif %}
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

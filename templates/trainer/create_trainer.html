@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %} Create a new Trainer {% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <br><br>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center">Create a new trainer</h3>
+                    </div>
+{#  enctyp="multipart/from-data"-> inseamna ca niciun caracter nu va fi codificat. Folosim cand dorim sa incarcam fisiere/imagini #}
+                    <form method="post" enctype="multipart/form-data">
+
+                        {% csrf_token %}
+                        <div class="card-body">
+                            {{ form.as_p }}
+                        </div>
+                        <div class="card-footer text-center">
+                            <button type="submit" class="btn btn-success">Save</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+{% endblock %}
