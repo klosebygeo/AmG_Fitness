@@ -4,7 +4,11 @@
 {% endblock title %}
 {% block head %}
 
-    <h1>Join The Best Gym In Bucharest</h1>
+
+                <div class="section-header">
+                <h2>Inscriere</h2>
+                <p>Hai la cea mai  <span> Performanta Sala de Fitness</span></p>
+            </div>
 {#    {% for message in messages %}#}
 {#        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">#}
 {#            <strong></strong> {{ message }}#}
@@ -33,7 +37,7 @@
                         <input type="text"
                                class="form-control"
                                name="FullName"
-                               placeholder="Enter Your Full Name"
+                               placeholder="Nume"
                                required/>
                     </div>
 
@@ -42,7 +46,7 @@
                                class="form-control mt-2"
                                value="{{ user.email }}"
                                name="email"
-                               placeholder="Enter Your Email"
+                               placeholder="Email"
                                readonly
                                required/>
                     </div>
@@ -51,24 +55,24 @@
 
                         <select class="form-control mt-2" id="gender" name="gender" required>
                             <option selected>Select</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
+                            <option value="male">Barbat</option>
+                            <option value="female">Femeie</option>
                         </select>
                     </div>
 
-                    <div class="form-group">
-                        <input
-                                type="number"
-                                class="form-control mt-2"
-                                name="{user.username}"
-                                placeholder="Enter Your Number"
-                                readonly
-                                required/>
-                    </div>
+{#                    <div class="form-group">#}
+{#                        <input#}
+{#                                type="number"#}
+{#                                class="form-control mt-2"#}
+{#                                name="{user.username}"#}
+{#                                placeholder="Enter Your Number"#}
+{#                                readonly#}
+{#                                required/>#}
+{#                    </div>#}
 
                     <div class="form-group">
                         <select class="form-control mt-2" id="member" name="member" required>
-                            <option selected>Select Membership Plan</option>
+                            <option selected>Pret plan de antranemt</option>
                             {% for p in Membership %}
                                 <option value="{{ p.plan }} - {{ p.price }}">{{ p.plan }} - {{ p.price }} RON</option>
                             {% endfor %}
@@ -77,7 +81,7 @@
 
                     <div class="form-group">
                         <select class="form-control mt-2" id="trainer" name="trainer" required>
-                            <option selected>Select Trainer</option>
+                            <option selected>Alege Antrenor</option>
                             {% for p in SelectTrainer %}
                                 <option value="{{ p.name }}">{{ p.name }}</option>
                             {% endfor %}
@@ -89,13 +93,13 @@
                                 type="text"
                                 class="form-control mt-2"
                                 name="address"
-                                placeholder="Address"
+                                placeholder="Adresa"
                         />
                     </div>
 
                     <br>
                     <div class="d-grid gap-2">
-                        <button class="btn btn-warning" type="submit">Enroll</button>
+                        <button class="btn btn-warning" type="submit">Inscriere</button>
                     </div>
 
 

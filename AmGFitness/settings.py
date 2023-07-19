@@ -12,17 +12,19 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-import environ
+import os.path
+from pathlib import Path
+#
+# import environ
+# import os
+#
+# env = environ.Env(DEBUG=(bool, True))
+# environ.Env.read_env()
+BASE_DIR = Path(__file__).resolve().parent.parent
+# environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-env = environ.Env()
-environ.Env.read_env()
-
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -34,7 +36,6 @@ SECRET_KEY = 'django-insecure-a6d**r^tzd)a85jhuur5t9gr7402g*z4ehwpsa@i*8xsz7alvf
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
     'authapp',
     'contact',
     'home',
+    'gallery'
 ]
 
 MIDDLEWARE = [
@@ -81,7 +83,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'AmGFitness.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -91,7 +92,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -111,7 +111,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -123,14 +122,14 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
 import os
+
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static')
+    os.path.join(BASE_DIR, 'static')
 ]
 
 # Default primary key field type
@@ -139,7 +138,7 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/' #mentionam prefixul. Cand utilizatorul se autentifica specificam unde sa fie redirectionat
+LOGIN_REDIRECT_URL = '/'  # mentionam prefixul. Cand utilizatorul se autentifica specificam unde sa fie redirectionat
 LOGOUT_REDIRECT_URL = '/login/'
 
-SENDGRID_API_KEY = env('SENDGRID_KEY')
+# SENDGRID_API_KEY = env('SENDGRID_KEY')

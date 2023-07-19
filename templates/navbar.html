@@ -1,7 +1,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
+      <a href="{% url 'homepage' %}" class="logo d-flex align-items-center me-auto me-lg-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="static/assets/img/logo.png" alt=""> -->
         <h1>AmG Fitness </h1>
@@ -11,13 +11,10 @@
         <ul>
           <li><a href="{% url 'homepage' %}">Acasa</a></li>
           <li><a href="{% url 'contact-us' %}">Contact</a></li>
-          <li><a href="#menu">Preturi</a></li>
-          <li><a href="#events">Sali fitness</a></li>
-          <li><a href="#chefs">Personal</a></li>
-          <li><a href="#gallery">Galerie</a></li>
-          <li class="dropdown"><a href="#"><span>Membru</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li><a href="{% url 'gallery' %}">Galerie</a></li>
+          <li class="dropdown"><a href="#"><span>Membru</span> <i class='bx bx-dumbbell'></i></a>
             <ul>
-              <li><a href="/join">Enroll</a></li>
+              <li><a href="/join">Inscriere</a></li>
               <li><a href="/profile">Vizualizare profil</a></li>
             </ul>
           </li>
@@ -29,14 +26,13 @@
           <li><a class="nav-link scrollto"  href="/logout">Logout</a></li>
           {% endif %}
         </ul>
-        <i class="bi bi-list mobile-nav-toogle"></i>
+        <i class='bx bx-user-check' ></i>
       </nav><!-- .navbar -->
 
     {% if  request.user.is_authenticated %}
-      <a class="btn-book-a-table" href="/">Welcome</a>
+      <a class="btn-book-a-table" href="/">Bun venit !</a>
     {% endif %}
-      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
 
     </div>
   </header><!-- End Header -->

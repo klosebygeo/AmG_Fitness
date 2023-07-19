@@ -22,4 +22,5 @@ urlpatterns = [
     path('',include("authapp.urls")),
     path('',include("contact.urls")),
     path('',include("home.urls")),
+    path('',include("gallery.urls")),
 ]
