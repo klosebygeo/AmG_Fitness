@@ -1,12 +1,8 @@
-import sendgrid as sendgrid
+
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
-from django.template.backends.django import Template
-from sendgrid import Email, To, Mail, Content
-from django.template.loader import get_template
-# from AmGFitness.settings import SENDGRID_API_KEY
 from authapp.models import MembershipPlan, Trainer, Enrollment
 
 
@@ -57,30 +53,6 @@ def signup(request):
         myuser.first_name = firstname
         myuser.last_name = lastname
         myuser.save()
-        # sg = sendgrid.SendGridAPIClient(api_key=SENDGRID_API_KEY)
-        # from_email = Email("beautywebdjango@gmail.com")
-        # to_email = To(myuser.email)
-        # subject = 'Felicitari! Ai un cont nou in aplicatie!'
-        #
-        # # Genereaza continutul e-mailului din template
-        # content = Template.render(
-        #     {'first_name': myuser.first_name, 'last_name': myuser.last_name, 'username': myuser.username})
-
-        # Construieste obiectul Mail si adauga continutul
-        # mail = Mail(from_email, to_email, subject)
-        # mail.add_content(Content("text/html", "Helllooo!!!!"))
-
-        # Trimite e-mailul
-        # sg.client.mail.send.post(request_body=mail.get())
-
-    # return redirect('/login')
-
-    # Incarca template-ul e-mailului
-    # context = {'user': myuser}
-    # content = render_to_string('mail.html', context)
-
-    # messages.success(request, "User is Created Please Login")
-    # return redirect('/login')
 
     return render(request, "signup.html")
 
