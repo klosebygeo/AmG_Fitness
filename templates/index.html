@@ -42,60 +42,6 @@
 
 <body>
 
-<!-- ======= Header ======= -->
-{#  <header id="header" class="header fixed-top d-flex align-items-center">#}
-{#    <div class="container d-flex align-items-center justify-content-between">#}
-{##}
-{#      <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">#}
-{#        <!-- Uncomment the line below if you also wish to use an image logo -->#}
-{#        <!-- <img src="static/assets/img/logo.png" alt=""> -->#}
-{#        <h1>AmG Fitness </h1>#}
-{#      </a>#}
-{##}
-{#      <nav id="navbar" class="navbar">#}
-{#        <ul>#}
-{#          <li><a href="#hero">Acasa</a></li>#}
-{#          <li><a href="#about">Despre</a></li>#}
-{#          <li><a href="#menu">Preturi</a></li>#}
-{#          <li><a href="#events">Sali fitness</a></li>#}
-{#          <li><a href="#chefs">Personal</a></li>#}
-{#            <li class="dropdown"><a href="#"><span>Antrenori</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>#}
-{#            <ul>#}
-{#              <li><a href="#">Inregistrare antrenori</a></li>#}
-{#              <li><a href="#">Modificare antrenor</a></li>#}
-{#              <li><a href="#">Stergere antrenor</a></li>#}
-{#              <li><a href="#">Lista antrenori</a></li>#}
-{#            </ul>#}
-{#          <li><a href="#gallery">Galerie</a></li>#}
-{#          <li class="dropdown"><a href="#"><span>Membru</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>#}
-{#            <ul>#}
-{#              <li><a href="#">Creare program de antrenament</a></li>#}
-{#              <li><a href="#">Modificare program de antrenament</a></li>#}
-{#              <li><a href="#">Stergere program de antrenament</a></li>#}
-{#              <li><a href="#">Vizualizare profil</a></li>#}
-{#            </ul>#}
-{#          </li>#}
-{##}
-{#         {% if not request.user.is_authenticated %}#}
-{##}
-{#          <li><a  href="/signup">SignIn</a></li>#}
-{#            {% else %}#}
-{#          <li><a  href="/logout">Logout</a></li>#}
-{#          <a class="btn-book-a-table">Welcome</a>#}
-{##}
-{#          {% endif %}#}
-{#        </ul>#}
-{#      </nav><!-- .navbar -->#}
-{##}
-{#      <a class="btn-book-a-table" href="#">AmGFitness</a>#}
-{#      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>#}
-{#      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>#}
-{##}
-{##}
-{##}
-{##}
-{#    </div>#}
-{#  </header><!-- End Header -->#}
 
 {% include 'navbar.html' %}
 {% block content %}
