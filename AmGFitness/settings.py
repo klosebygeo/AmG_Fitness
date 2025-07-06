@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'home',
     'gallery'
 ]
---
+----
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
