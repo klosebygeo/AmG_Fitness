@@ -1,14 +1,18 @@
 services:
   - type: web
-    name: amg-fitness-app
+    name: amg-fitness
     env: python
     plan: free
-    buildCommand: pip install -r requirements.txt
+    buildCommand: |
+      pip install --upgrade pip
+      pip install --no-cache-dir --prefer-binary -r requirements.txt
     startCommand: gunicorn AmGFitness.wsgi:application
     envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: AmGFitness.settings
+      - key: PYTHON_VERSION
+        value: 3.10.12
       - key: DEBUG
         value: "False"
       - key: DJANGO_ALLOWED_HOSTS
         value: ".onrender.com"
-      - key: PYTHON_VERSION
-        value: "3.10.12"
