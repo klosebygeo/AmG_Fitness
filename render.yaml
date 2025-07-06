@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: AmG_fitness
+    name: AmGfitness
     env: python
     plan: free
     buildCommand: |
